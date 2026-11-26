@@ -1,0 +1,5 @@
+-- Ubah kolom role pada tabel users dari ENUM terbatas menjadi VARCHAR(50)
+-- Agar mendukung seluruh role RBAC: PENGEMBANG, ADMINISTRATOR, ADMIN_KEUANGAN, ADMIN_GUDANG, ADMIN_OPERASIONAL, dll.
+
+ALTER TABLE users MODIFY COLUMN role VARCHAR(50) NOT NULL DEFAULT 'ADMINISTRATOR';
+

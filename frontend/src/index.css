@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+  }
+  .card-header {
+    @apply border-b border-slate-100 px-5 py-4;
+  }
+  .label {
+    @apply mb-1 block text-sm font-medium text-slate-700;
+  }
+  .input {
+    @apply w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-800 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 disabled:cursor-not-allowed disabled:bg-slate-100;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+  }
+  .btn-secondary {
+    @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus:ring-slate-300;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  .btn-success {
+    @apply btn bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500;
+  }
+  .table-base {
+    @apply w-full text-left text-sm;
+  }
+  .table-base thead th {
+    @apply border-b border-slate-200 bg-slate-50 px-3 py-2.5 sm:px-4 sm:py-3 text-[11px] sm:text-xs font-semibold uppercase tracking-wide text-slate-500 whitespace-nowrap;
+  }
+  .table-base tbody td {
+    @apply border-b border-slate-100 px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm text-slate-700 whitespace-nowrap;
+  }
+  .table-base tbody tr:hover {
+    @apply bg-slate-50/80;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 text-[11px] sm:text-xs font-semibold whitespace-nowrap;
+  }
+}
+
+/* ==========================================================================
+   PRINT / PDF STYLESHEET (PROFESSIONAL ACCOUNTING REPORTS)
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0.8cm 0.8cm 0.8cm 0.8cm;
+  }
+
+  .print-landscape {
+    page: landscape;
+  }
+  @page landscape {
+    size: A4 landscape;
+    margin: 0.8cm 0.8cm 0.8cm 0.8cm;
+  }
+
+  body, html {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 9pt !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  aside,
+  header,
+  nav,
+  .print\:hidden,
+  button,
+  .bg-black\/50,
+  .bg-black\/60,
+  .backdrop-blur-xs,
+  [role="dialog"],
+  #printable-invoice-modal-root {
+    display: none !important;
+  }
+
+  main,
+  main > div,
+  .space-y-6,
+  .card,
+  .print\:shadow-none {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .overflow-x-auto,
+  .overflow-y-auto,
+  .overflow-auto {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  .table-base {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: auto !important;
+  }
+
+  .table-base thead th,
+  .table-base tbody td {
+    white-space: normal !important;
+    padding: 4px 5px !important;
+    font-size: 8.5pt !important;
+    word-break: break-word !important;
+  }
+
+  table {
+    page-break-inside: auto !important;
+    width: 100% !important;
+  }
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+  thead {
+    display: table-header-group !important;
+  }
+  tfoot {
+    display: table-footer-group !important;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
